@@ -4,6 +4,7 @@
  - python-dev
  - strace
  - ltrace
+ - My Configuration
  - Powerline
     - http://powerline.readthedocs.org/en/master/index.html
  - GDB peda
