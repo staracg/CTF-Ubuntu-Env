@@ -63,6 +63,7 @@ if $RC; then
     sudo apt-get install -y python-dev
     cp ./.vimrc ~
     cp ./.bashrc ~
+    cp ./.bash_profile ~
     cp ./.screenrc ~
     # Install vim plugin
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
