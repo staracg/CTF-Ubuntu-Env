@@ -1,5 +1,7 @@
 # Ubuntu-Env
 ### Quick installation for CTF on Ubuntu-64bits
+ - Vim
+ - python-dev
  - GDB peda
     - https://github.com/longld/peda
  - strace
