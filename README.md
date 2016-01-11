@@ -4,9 +4,13 @@
  - python-dev
  - strace
  - ltrace
+ - nmap
+ - Vundle
  - My Configuration
  - Powerline
     - http://powerline.readthedocs.org/en/master/index.html
+ - Z3
+    - https://github.com/Z3Prover/z3
  - GDB peda
     - https://github.com/longld/peda
  - pwntools
