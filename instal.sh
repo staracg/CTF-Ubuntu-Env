@@ -108,4 +108,3 @@ if $CTF; then
     ./install.sh
     ./fetchlibs.sh    
 fi
-

@@ -89,5 +89,3 @@ set bs=2                     "open the backspace""
 set t_Co=256
 set showmatch                " Cursor shows matching ) and }
 set showmode                 " Show current mode  "
-highlight Comment ctermfg=blue
-
