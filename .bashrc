@@ -114,6 +114,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
 # You want $TERM to be screen-256color when tmux is running, and you want it to be xterm-256color when tmux is not running.
 if [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; then
   export TERM=screen-256color
