@@ -12,9 +12,10 @@
     - https://github.com/BinaryAnalysisPlatform/qira
  - Powerline
     - http://powerline.readthedocs.org/en/master/index.html
-# Installation
+
+### Installation
 
 ```
-    ,/install.sh
+    ./install.sh
 ```
 
