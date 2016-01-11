@@ -18,6 +18,6 @@
 ### Installation
 
 ```
-    ./install.sh
+ ./install.sh
 ```
 
