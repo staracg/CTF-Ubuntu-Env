@@ -16,7 +16,7 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
+HISTSIZE=50000
 HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
@@ -57,8 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-   # PS1="\[$yellow$bold\]\u\[$reset\]@\[$green$bold\]\h\[$reset\]:\[$blue$bold\]\w\[$reset\]$ "
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[$yellow$bold\]\u\[$reset\]@\[$green$bold\]\h\[$reset\]:\[$blue$bold\]\w\[$reset\]$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -114,29 +113,3 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# You want $TERM to be screen-256color when tmux is running, and you want it to be xterm-256color when tmux is not running.
-if [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; then
-  export TERM=screen-256color
-else
-    export TERM=xterm-256color
-fi
-
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
-
-# Colorize the prompt.
-yellow=$(tput setaf 3)
-green=$(tput setaf 2)
-blue=$(tput setaf 6)
-bold=$(tput bold)
-reset=$(tput sgr0)
-
-export PS1="\[$yellow$bold\]\u\[$reset\]@\[$green$bold\]\h\[$reset\]:\[$blue$bold\]\w\[$reset\]$ "
-
-export HISTSIZE=50000
-export CLICOLOR=1
-export LSCOLORS='Exfxcxdxbxegedabagacad'
-export EDITOR='vim'
-export PATH="/usr/local/sbin:$PATH"
