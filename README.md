@@ -19,7 +19,9 @@
 ### Installation
 
 ```
+ cd ~/
  git clone https://github.com/staracg/Ubuntu-Env.git
+ cd Ubuntu-Env/
  ./install.sh
 ```
 
