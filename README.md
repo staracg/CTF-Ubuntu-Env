@@ -7,9 +7,9 @@
  - nmap
  - Vundle
  - My Configuration
- - Powerline
+ - powerline
     - http://powerline.readthedocs.org/en/master/index.html
- - Z3
+ - z3
     - https://github.com/Z3Prover/z3
  - GDB peda
     - https://github.com/longld/peda
@@ -17,7 +17,7 @@
     - https://github.com/Gallopsled/pwntools
  - ROPgadget
     - https://github.com/JonathanSalwan/ROPgadget
- - Qira
+ - qira
     - https://github.com/BinaryAnalysisPlatform/qira
 
 ### Installation
