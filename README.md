@@ -20,7 +20,7 @@
  - qira
     - https://github.com/BinaryAnalysisPlatform/qira
  
- - Plugin
+ - Vim Plugin
 ```
 " My Bundles here:"
 Bundle 'Lokaltog/vim-easymotion'
