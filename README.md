@@ -62,5 +62,5 @@ Press F1 to open NERDTree
 
 ```
 cd .vim/bundle/YouCompleteMe
-sudo python ./install.py --clang-completer
+python ./install.py --clang-completer
 ```
