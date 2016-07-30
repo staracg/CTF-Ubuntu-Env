@@ -15,6 +15,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias vi='vim'
+alias python='ipython'
 
 # Powerline set
 powerline-daemon -q
