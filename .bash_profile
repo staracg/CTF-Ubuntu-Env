@@ -40,3 +40,4 @@ export PS1="\[$yellow$bold\]\u\[$reset\]@\[$green$bold\]\h\[$reset\]:\[$blue$bol
 export CLICOLOR=1
 export LSCOLORS='Exfxcxdxbxegedabagacad'
 export EDITOR='vim'
+export PATH="/usr/local/sbin:$PATH"
