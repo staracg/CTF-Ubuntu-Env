@@ -16,6 +16,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias vi='vim'
 alias python='ipython'
+alias objdump='objdump -M intel'
 
 # Powerline set
 powerline-daemon -q
