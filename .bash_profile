@@ -15,6 +15,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias vi='vim'
+alias python='ipython'
+alias objdump='objdump -M intel'
 
 # Powerline set
 powerline-daemon -q
@@ -38,4 +40,3 @@ export PS1="\[$yellow$bold\]\u\[$reset\]@\[$green$bold\]\h\[$reset\]:\[$blue$bol
 export CLICOLOR=1
 export LSCOLORS='Exfxcxdxbxegedabagacad'
 export EDITOR='vim'
-export PATH="/usr/local/sbin:$PATH"
