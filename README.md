@@ -22,6 +22,9 @@
  - Screen
  ![Alt Text](http://i.imgur.com/veZ4o3e.png)
 
+ - Vim screenshot
+ ![Alt Text](http://imgur.com//OyJv3.png)
+
  - Vim Plugin
 ```
 Bundle 'Lokaltog/vim-easymotion'
