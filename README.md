@@ -41,8 +41,7 @@ Bundle 'rstacruz/sparkup'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'Valloric/YouCompleteMe'
-Plugin 'wombat256.vim'
-
+Plugin 'sheerun/vim-wombat-scheme'
 ---
 Press F1 to open NERDTree
 ---
