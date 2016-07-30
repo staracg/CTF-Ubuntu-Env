@@ -23,7 +23,7 @@
  ![Alt Text](http://i.imgur.com/veZ4o3e.png)
 
  - Vim screenshot
- ![Alt Text](http://imgur.com//OyJv3.png)
+ ![Alt Text](http://i.imgur.com/ZtFGSLQ.png)
 
  - Vim Plugin
 ```
