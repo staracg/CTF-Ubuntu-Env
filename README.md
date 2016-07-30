@@ -58,9 +58,3 @@ Press F1 to open NERDTree
  cd Ubuntu-Env/
  ./install.sh
 ```
-### Install YouCompleteMe
-
-```
-cd .vim/bundle/YouCompleteMe
-python ./install.py --clang-completer
-```
