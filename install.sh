@@ -100,6 +100,7 @@ if $CTF; then
     # Install GDB peda
     cd ~/
     git clone https://github.com/longld/peda.git ~/peda
+    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
     echo "source ~/peda/peda.py" >> ~/.gdbinit
     echo "DONE! debug your program with gdb and enjoy"
 
