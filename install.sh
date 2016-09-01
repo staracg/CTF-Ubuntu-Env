@@ -69,7 +69,7 @@ if $RC; then
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
     cd ~/.vim/bundle/YouCompleteMe
-    ./install.py --clang-completer --omnisharp-completer --gocode-completer --tern-completer
+    ./install.py --clang-completer --omnisharp-completer --gocode-completer --tern-completer --all
 fi
 
 if $CTF; then
@@ -78,24 +78,31 @@ if $CTF; then
     dpkg --add-architecture i386
     sudo apt-get update
     sudo apt-get install -y gcc-multilib
+    
+    # Install angr
+    sudo apt-get install python-dev libffi-dev build-essential virtualenvwrapper
+    sudo pip install angr --upgrade
 
     # Install nmap, strace, ltrace
     sudo apt-get install -y nmap
     sudo apt-get install -y strace
     sudo apt-get install -y ltrace
+
     # Install z3
     cd ~/
     git clone https://github.com/Z3Prover/z3
     cd z3/
-    python scripts/mk_make.py
+    sudo python scripts/mk_make.py --python
     cd build
-    make
+    sudo make
     sudo make install
+
     # Install GDB peda
     cd ~/
     git clone https://github.com/longld/peda.git ~/peda
     echo "source ~/peda/peda.py" >> ~/.gdbinit
     echo "DONE! debug your program with gdb and enjoy"
+
     # Install python packages
     # stable
     # sudo pip install pwntools
@@ -104,8 +111,9 @@ if $CTF; then
     sudo pip install ropgadget --upgrade
     # Install qira
     cd ~/
-    git clone https://github.com/BinaryAnalysisPlatform/qira.git
+    wget -qO- https://github.com/BinaryAnalysisPlatform/qira/archive/v1.2.tar.gz | tar zxvf qira/
     cd qira/
-    ./install.sh
-    ./fetchlibs.sh    
+    sudo ./install.sh
+    sudo ./fetchlibs.sh
+
 fi
