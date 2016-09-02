@@ -112,8 +112,8 @@ if $CTF; then
     sudo pip install ropgadget --upgrade
     # Install qira
     cd ~/
-    wget -qO- https://github.com/BinaryAnalysisPlatform/qira/archive/v1.2.tar.gz | tar zxvf qira/
-    cd qira/
+    wget -qO- https://github.com/BinaryAnalysisPlatform/qira/archive/v1.2.tar.gz | tar zxvf qira
+    cd qira-1.2/
     sudo ./install.sh
     sudo ./fetchlibs.sh
 
