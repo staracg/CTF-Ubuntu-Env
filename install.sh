@@ -111,10 +111,12 @@ if $CTF; then
     sudo pip install capstone --upgrade
     sudo pip install ropgadget --upgrade
     # Install qira
+    sudo pip install six html flask-socketio pillow pyelftools socketIO-client gevent pydot ipaddr hexdump nose --upgrade
     cd ~/
-    wget -qO- https://github.com/BinaryAnalysisPlatform/qira/archive/v1.2.tar.gz | tar zxvf
-    cd qira-1.2/
+    git clone https://github.com/BinaryAnalysisPlatform/qira.git
+    cd qira/
     sudo ./install.sh
     sudo ./fetchlibs.sh
+    sudo ./tracers/pin_build.sh
 
 fi
