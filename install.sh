@@ -118,5 +118,6 @@ if $CTF; then
     sudo ./install.sh
     sudo ./fetchlibs.sh
     sudo ./tracers/pin_build.sh
+    sudo ./tracers/qemu_build.sh
 
 fi
