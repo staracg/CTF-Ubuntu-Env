@@ -112,8 +112,8 @@ if $CTF; then
     sudo pip install ropgadget --upgrade
     # Install qira
     sudo pip install six html flask-socketio pillow pyelftools socketIO-client gevent pydot ipaddr hexdump nose --upgrade
-    cd ~/
-    git clone https://github.com/BinaryAnalysisPlatform/qira.git
+    cd ~/  
+    wget -qO- https://github.com/BinaryAnalysisPlatform/qira/archive/v1.2.tar.gz | tar zx && mv qira* qira
     cd qira/
     sudo ./install.sh
     sudo ./fetchlibs.sh
