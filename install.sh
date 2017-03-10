@@ -65,6 +65,7 @@ if $RC; then
     cp ./.bashrc ~
     cp ./.bash_profile ~
     cp ./.screenrc ~
+    cp ./.tmux.conf ~
     # Install vim plugin
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
