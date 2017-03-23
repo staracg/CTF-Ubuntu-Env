@@ -26,32 +26,8 @@
  ![Alt Text](http://i.imgur.com/xCpWPQh.png)
 
  - Vim screenshot
- ![Alt Text](http://imgur.com/PVE6p2u.png)
+ ![Alt Text]()
 
- - Vim Plugin
-```
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'airblade/vim-gitgutter'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle 'Townk/vim-autoclose'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'majutsushi/tagbar'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'honza/vim-snippets'
-Bundle 'garbas/vim-snipmate'
-Bundle 'rstacruz/sparkup'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'Valloric/YouCompleteMe'
-Plugin 'sheerun/vim-wombat-scheme'
----
-Press F1 to open NERDTree
----
-```
 
 ### Installation
 
