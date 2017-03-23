@@ -1,10 +1,3 @@
-" powerline
-set rtp+=usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-
-" http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
 " Setting up Vundle - the vim plugin bundler
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -20,9 +13,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required!
 Bundle 'gmarik/vundle'
-call vundle#end()
 
 " My Bundles here:"
 Plugin 'gmarik/Vundle.vim'
@@ -58,14 +49,12 @@ Plugin 'majutsushi/tagbar'
 Plugin 'Shougo/unite-outline'
 Plugin 'Shougo/vimproc.vim'
 
-
 "map vim record mode to none
 map q <Nop>
 scriptencoding utf-8
 set encoding=utf-8    
 set langmenu=en_US.UTF-8
 language message en_US.UTF-8
-
 
 " Vim settings and mappings
 " You can edit them as you wish
@@ -81,6 +70,8 @@ filetype plugin on
 filetype indent on
 
 " general
+set linespace=0
+set background=dark                                                                                      
 set wildmenu
 set smarttab
 set showmatch       " Cursor shows matching ) and }
@@ -142,7 +133,6 @@ imap <C-J> <C-X><C-O>
 " Disabled by default because preview makes the window flicker
 set completeopt-=preview
 
-
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
@@ -151,17 +141,15 @@ nmap ,r :Ack
 nmap ,wr :Ack <cword><CR>
 
 " use 256 colors when possible
-
 if filereadable(expand('~/.vim/bundle/molokai/colors/molokai.vim'))
     let g:molokai_original = 1
-    let &t_Co = 256
+    let t_Co = 256
     colorscheme molokai
 
     " colors for gvim
 if has('gui_running')
     colorscheme molokai
 endif
-
 
 " autocompletion of files and commands behaves like shell
 " (complete only the common part, list the options that match)
@@ -181,7 +169,6 @@ let g:tagbar_autofocus = 1
 
 " <F5> toggles paste mode
 set pastetoggle=<F2>
-
 
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -221,16 +208,10 @@ nmap ,wc :call CtrlPWithSearchText(expand('<cword>'), 'CmdPalette')<CR>
 " don't change working directory
 let g:ctrlp_working_path_mode = 0
 
-
-" Syntastic ------------------------------
-
 " show list of errors and warnings on the current file
 nmap <leader>e :Errors<CR>
 let g:syntastic_check_on_open = 1
 let g:syntastic_enable_signs = 0
-
-
-" Python-mode ============================================
 
 " don't use linter, we use syntastic for that
 let g:pymode_lint_on_write = 0
@@ -251,31 +232,24 @@ let g:neocomplcache_min_syntax_length = 1
 let g:neocomplcache_same_filetype_lists = {}
 let g:neocomplcache_same_filetype_lists._ = '_'
 
-" =========================================================
-
 " mappings to toggle display, and to focus on it
 let g:tabman_toggle = 'tl'
 let g:tabman_focus  = 'tf'
 
-
 " Fix to let ESC work as espected with Autoclose plugin
 let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
-
-" DragVisuals ------------------------------
 
 " mappings to move blocks in 4 directions
 vmap <expr> <S-M-LEFT> DVB_Drag('left')
 vmap <expr> <S-M-RIGHT> DVB_Drag('right')
 vmap <expr> <S-M-DOWN> DVB_Drag('down')
 vmap <expr> <S-M-UP> DVB_Drag('up')
-" mapping to duplicate block
 vmap <expr> D DVB_Duplicate()
 
-" Signify ------------------------------
 " this first setting decides in which order try to guess your current vcs
 " UPDATE it to reflect your preferences, it will speed up opening files
-
 let g:signify_vcs_list = [ 'git', 'hg' ]
+
 " mappings to jump to changed blocks
 nmap <leader>sn <plug>(signify-next-hunk)
 nmap <leader>sp <plug>(signify-prev-hunk)
@@ -288,20 +262,22 @@ highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
 highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
 
-" Window Chooser ------------------------------
 " mapping
 nmap  -  <Plug>(choosewin)
+
 " show big letters
 let g:choosewin_overlay_enable = 1
-
-" Airline ------------------------------
+" airline
+set ttimeoutlen=50
+set noshowmode
+set fillchars+=stl:\ ,stlnc:\
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
 let g:airline_theme = 'powerlineish'
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -311,7 +287,7 @@ let g:airline_symbols.branch = '⎇'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#whitespace#enabled = 0 
-
+let g:airline#extensions#tabline#enabled = 1
 
 " UltiSnips -------------------------------
 let g:UltiSnipsExpandTrigger="<tab>"
