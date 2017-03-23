@@ -65,6 +65,7 @@ if $RC; then
     cp ./.bashrc ~
     cp ./.bash_profile ~
     cp ./.screenrc ~
+    cp ./.gdbinit ~
     cp ./.tmux.conf ~
     # Install vim plugin
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -109,19 +110,15 @@ if $CTF; then
     # stable
     # sudo pip install pwntools
    
-    #sudo apt-get install -y git python-pip
-    #git clone https://github.com/Gallopsled/pwntools.git
-    #cd pwntools/
-    #sudo pip install -r requirements.txt
-    #cd ..
-    #git clone https://github.com/aquynh/capstone.git
-    #cd capstone/
-    #./make.sh
-    #sudo ./make.sh install
-    
-    sudo pip install git+https://github.com/Gallopsled/pwntools#egg=pwntools --upgrade
-    sudo pip install capstone --upgrade
-    sudo pip install ropgadget --upgrade
+    sudo apt-get install -y git python-pip
+    git clone https://github.com/Gallopsled/pwntools.git
+    cd pwntools/
+    sudo pip install -r requirements.txt
+    cd ..
+    git clone https://github.com/aquynh/capstone.git
+    cd capstone/
+    ./make.sh
+    sudo ./make.sh install
 
     # Install qira
     sudo pip install six html flask-socketio pillow pyelftools socketIO-client gevent pydot ipaddr hexdump nose --upgrade
@@ -132,5 +129,4 @@ if $CTF; then
     sudo ./fetchlibs.sh
     sudo ./tracers/pin_build.sh
     sudo ./tracers/qemu_build.sh
-
 fi
