@@ -8,22 +8,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-function git_branch {
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
-    echo "("${ref#refs/heads/}") ";
-}
-
-function git_since_last_commit {
-    now=`date +%s`;
-    last_commit=$(git log --pretty=format:%at -1 2> /dev/null) || return;
-    seconds_since_last_commit=$((now-last_commit));
-    minutes_since_last_commit=$((seconds_since_last_commit/60));
-    hours_since_last_commit=$((minutes_since_last_commit/60));
-    minutes_since_last_commit=$((minutes_since_last_commit%60));
-    
-    echo "${hours_since_last_commit}h${minutes_since_last_commit}m ";
-}
-
 # some more aliases
 alias gdb="gdb -q"
 alias tmux="tmux -2"
@@ -50,7 +34,7 @@ export TERM=xterm-256color
 export force_color_prompt=yes
 export HISTSIZE=100000
 export HISTFILESIZE=100000 
-export PS1="\[$yellow$bold\]\u\[$reset\]@\[$green$bold\]\h\[$reset\]:\[$blue$bold\]\w\[$reset\]\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\]$ "
+export PS1="\[$yellow$bold\]\u\[$reset\]@\[$green$bold\]\h\[$reset\]:\[$blue$bold\]\w\[$reset\]$ "
 export CLICOLOR=1
 export LSCOLORS='Exfxcxdxbxegedabagacad'
 export EDITOR='vim'
