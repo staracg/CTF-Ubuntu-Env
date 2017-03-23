@@ -3,14 +3,17 @@ if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
 
 # some more aliases
+alias gdb="gdb -q"
+alias tmux="tmux -2"
+alias strace="strace -ixv"
+alias ltrace="ltrace -iC"
+alias len="expr length "
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -40,4 +43,3 @@ export PS1="\[$yellow$bold\]\u\[$reset\]@\[$green$bold\]\h\[$reset\]:\[$blue$bol
 export CLICOLOR=1
 export LSCOLORS='Exfxcxdxbxegedabagacad'
 export EDITOR='vim'
-export PATH="/usr/local/sbin:$PATH"
