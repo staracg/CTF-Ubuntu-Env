@@ -184,6 +184,7 @@ set pastetoggle=<F2>
 
 
 " ctrlp
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_custom_ignore = { 
     \ 'dir': '\.git$\|\.hg$:|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
     \ 'file': '\.exe$\|\.so$\|\.dat$'
