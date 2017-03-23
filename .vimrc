@@ -22,6 +22,7 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
+call vundle#end()
 
 " My Bundles here:"
 Plugin 'gmarik/Vundle.vim'
@@ -31,11 +32,15 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'tpope/vim-fugitive'  "branch of powerline
 Plugin 'c9s/colorselector.vim'
 Plugin 'ap/vim-css-color'
-"Plugin 'emmetio/emmet'
 Plugin 'gregsexton/MatchTag'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'python_match.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'L4ys/molokai'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vectorstorm/vim-csyn'
+Plugin 'SirVer/ultisnips'
 
 "Plugin 'AutoComplPop'
 Plugin 'othree/vim-autocomplpop'
@@ -43,7 +48,6 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
-
 Plugin 'ironcamel/vim-script-runner'
 Plugin 'xuhdev/SingleCompile'
 
@@ -54,11 +58,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'Shougo/unite-outline'
 Plugin 'Shougo/vimproc.vim'
 
-"Press F1 to open NERDTree
-map <F1> :NERDTreeToggle<CR>
-call vundle#end()            " required
-filetype plugin indent on    " required
-           
+
 "map vim record mode to none
 map q <Nop>
 scriptencoding utf-8
@@ -66,7 +66,8 @@ set encoding=utf-8
 set langmenu=en_US.UTF-8
 language message en_US.UTF-8
 
-" Vim settings and mappings
+
+           " Vim settings and mappings
 " You can edit them as you wish
 
 " Configuration file for vim
@@ -87,7 +88,11 @@ set showmatch       " Cursor shows matching ) and }
 set showmode        " Show current mode  "
 set cursorline      " cursorline highlighting
 set expandtab
+set ttyfast
+set magic
+set cmdheight=1
 set tabstop=4
+set lazyredraw
 set softtabstop=4
 set shiftwidth=4
 set nu              " show line numbers
@@ -103,6 +108,11 @@ set autoread        " auto read when file is changed from outside "
 set history=1000    " keep 50 lines of command line history  "
 set scrolloff=3     " when scrolling, keep cursor 3 lines away from screen border
 syntax on           " syntax highlight on
+
+if filereadable(expand('~/.vim/bundle/molokai/colors/molokai.vim'))
+    let g:molokai_original = 1
+    colorscheme molokai
+endif
 
 " tab length exceptions on some file types
 autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
@@ -138,8 +148,9 @@ imap <C-J> <C-X><C-O>
 " Disabled by default because preview makes the window flicker
 set completeopt-=preview
 
-" save as sudo
-ca w!! w !sudo tee "%"
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
 
 " simple recursive grep
 nmap ,r :Ack 
@@ -147,7 +158,7 @@ nmap ,wr :Ack <cword><CR>
 
 " use 256 colors when possible
 if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
-	    let &t_Co = 256
+      let &t_Co = 256
     colorscheme wombat
 
 " colors for gvim
@@ -162,48 +173,61 @@ set wildmode=list:longest
 " ============================================================================
 " Plugins settings and mappings
 " Edit them as you wish.
+" ============================================================================
 
-" Tagbar ----------------------------- 
+"Press F1 to open NERDTree
+map <F1> :NERDTreeToggle<CR>
+nmap ,t :NERDTreeFind<CR>
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
 " toggle tagbar display
-map <F4> :TagbarToggle<CR>
+map <F2> :TagbarToggle<CR>
+
 " autofocus on tagbar open
 let g:tagbar_autofocus = 1
 
-" NERDTree ----------------------------- 
-
 " toggle nerdtree display
 map <F3> :NERDTreeToggle<CR>
-" open nerdtree with the current file selected
-nmap ,t :NERDTreeFind<CR>
-" don;t show these file types
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-
-
-" Tasklist ------------------------------
 
 " show pending tasks list
-map <F2> :TaskList<CR>
+map <F4> :TaskList<CR>
+
+" <F5> toggles paste mode
+set pastetoggle=<F2>
+
+" <F6> toggles hex edit
+noremap <silent> <F4> :call ToggleHex()<CR>
+imap <silent><F4> <C-O><F4>
+
+
 
 " CtrlP ------------------------------
 
-" file finder mapping
-let g:ctrlp_map = ',e'
-" tags (symbols) in current file finder mapping
-nmap ,g :CtrlPBufTag<CR>
-" tags (symbols) in all files finder mapping
-nmap ,G :CtrlPBufTagAll<CR>
-" general code finder in all files mapping
-nmap ,f :CtrlPLine<CR>
-" recent files finder mapping
-nmap ,m :CtrlPMRUFiles<CR>
-" commands finder mapping
-nmap ,c :CtrlPCmdPalette<CR>
-" to be able to call CtrlP with default search text
+" ctrlp
+let g:ctrlp_custom_ignore = { 
+    \ 'dir': '\.git$\|\.hg$:|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
+    \ 'file': '\.exe$\|\.so$\|\.dat$'
+    \ }
+
 function! CtrlPWithSearchText(search_text, ctrlp_command_end)
     execute ':CtrlP' . a:ctrlp_command_end
     call feedkeys(a:search_text)
 endfunction
+
+" leader + b to open buffer list with ctrlp
+nmap <leader>b :CtrlPBuffer<CR>
+
+" file finder mapping
+let g:ctrlp_map = ',e'
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_cmd = 'CtrlPMRU'
+
+nmap ,g :CtrlPBufTag<CR>
+nmap ,G :CtrlPBufTagAll<CR>
+nmap ,f :CtrlPLine<CR>
+nmap ,m :CtrlPMRUFiles<CR>
+nmap ,c :CtrlPCmdPalette<CR>
+
 " same as previous mappings, but calling with current word as default text
 nmap ,wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
 nmap ,wG :call CtrlPWithSearchText(expand('<cword>'), 'BufTagAll')<CR>
@@ -212,35 +236,27 @@ nmap ,we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
 nmap ,pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
 nmap ,wm :call CtrlPWithSearchText(expand('<cword>'), 'MRUFiles')<CR>
 nmap ,wc :call CtrlPWithSearchText(expand('<cword>'), 'CmdPalette')<CR>
+
 " don't change working directory
 let g:ctrlp_working_path_mode = 0
-" ignore these files and folders on file finder
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules)$',
-  \ 'file': '\.pyc$\|\.pyo$',
-  \ }
+
 
 " Syntastic ------------------------------
 
 " show list of errors and warnings on the current file
 nmap <leader>e :Errors<CR>
-" check also when just opened the file
 let g:syntastic_check_on_open = 1
-" don't put icons on the sign column (it hides the vcs status icons of signify)
 let g:syntastic_enable_signs = 0
-" custom icons (enable them if you use a patched font, and enable the previous 
-" setting)
-"let g:syntastic_error_symbol = '✗'
-"let g:syntastic_warning_symbol = '⚠'
-"let g:syntastic_style_error_symbol = '✗'
-"let g:syntastic_style_warning_symbol = '⚠'
 
-" Python-mode ------------------------------
+
+" Python-mode ============================================
 
 " don't use linter, we use syntastic for that
 let g:pymode_lint_on_write = 0
 let g:pymode_lint_signs = 0
+
 " don't fold python code on open
+
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
@@ -249,17 +265,17 @@ let g:neocomplcache_auto_completion_start_length = 1
 let g:neocomplcache_manual_completion_start_length = 1
 let g:neocomplcache_min_keyword_length = 1
 let g:neocomplcache_min_syntax_length = 1
+
 " complete with workds from any opened file
 let g:neocomplcache_same_filetype_lists = {}
 let g:neocomplcache_same_filetype_lists._ = '_'
 
-" TabMan ------------------------------
+" =========================================================
 
 " mappings to toggle display, and to focus on it
 let g:tabman_toggle = 'tl'
 let g:tabman_focus  = 'tf'
 
-" Autoclose ------------------------------
 
 " Fix to let ESC work as espected with Autoclose plugin
 let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
@@ -275,13 +291,14 @@ vmap <expr> <S-M-UP> DVB_Drag('up')
 vmap <expr> D DVB_Duplicate()
 
 " Signify ------------------------------
-
 " this first setting decides in which order try to guess your current vcs
 " UPDATE it to reflect your preferences, it will speed up opening files
+
 let g:signify_vcs_list = [ 'git', 'hg' ]
 " mappings to jump to changed blocks
 nmap <leader>sn <plug>(signify-next-hunk)
 nmap <leader>sp <plug>(signify-prev-hunk)
+
 " nicer colors
 highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
 highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
@@ -291,7 +308,6 @@ highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
 
 " Window Chooser ------------------------------
-
 " mapping
 nmap  -  <Plug>(choosewin)
 " show big letters
@@ -299,7 +315,33 @@ let g:choosewin_overlay_enable = 1
 
 " Airline ------------------------------
 
-let g:airline_powerline_fonts = 0
-let g:airline_theme = 'bubblegum'
-let g:airline#extensions#whitespace#enabled = 0
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
 endif
+
+let g:airline_theme = 'powerlineish'
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#empty_message = ''
+let g:airline#extensions#whitespace#enabled = 0 
+
+
+" UltiSnips -------------------------------
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+let g:Powerline_symbols='fancy'
+let g:Powerline_cache_enabled = 0
+let g:user_emmet_leader_key='<C-e>' 
+let g:acp_behaviorSnipmateLength = 1
+let g:script_runner_key = '<F9>'
+let g:unite_source_grep_recursive_opt = ''
+let g:unite_source_grep_search_word_highlight=1
