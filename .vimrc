@@ -67,9 +67,8 @@ set langmenu=en_US.UTF-8
 language message en_US.UTF-8
 
 
-           " Vim settings and mappings
+" Vim settings and mappings
 " You can edit them as you wish
-
 " Configuration file for vim
 set modelines=0     " CVE-2007-2438
 set backspace=2     " more powerful backspacing
@@ -108,11 +107,6 @@ set autoread        " auto read when file is changed from outside "
 set history=1000    " keep 50 lines of command line history  "
 set scrolloff=3     " when scrolling, keep cursor 3 lines away from screen border
 syntax on           " syntax highlight on
-
-if filereadable(expand('~/.vim/bundle/molokai/colors/molokai.vim'))
-    let g:molokai_original = 1
-    colorscheme molokai
-endif
 
 " tab length exceptions on some file types
 autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
@@ -157,14 +151,17 @@ nmap ,r :Ack
 nmap ,wr :Ack <cword><CR>
 
 " use 256 colors when possible
-if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
-      let &t_Co = 256
-    colorscheme wombat
 
-" colors for gvim
+if filereadable(expand('~/.vim/bundle/molokai/colors/molokai.vim'))
+    let g:molokai_original = 1
+    let &t_Co = 256
+    colorscheme molokai
+
+    " colors for gvim
 if has('gui_running')
-    colorscheme wombat
+    colorscheme molokai
 endif
+
 
 " autocompletion of files and commands behaves like shell
 " (complete only the common part, list the options that match)
@@ -179,29 +176,12 @@ set wildmode=list:longest
 map <F1> :NERDTreeToggle<CR>
 nmap ,t :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-
-" toggle tagbar display
-map <F2> :TagbarToggle<CR>
-
 " autofocus on tagbar open
 let g:tagbar_autofocus = 1
-
-" toggle nerdtree display
-map <F3> :NERDTreeToggle<CR>
-
-" show pending tasks list
-map <F4> :TaskList<CR>
 
 " <F5> toggles paste mode
 set pastetoggle=<F2>
 
-" <F6> toggles hex edit
-noremap <silent> <F4> :call ToggleHex()<CR>
-imap <silent><F4> <C-O><F4>
-
-
-
-" CtrlP ------------------------------
 
 " ctrlp
 let g:ctrlp_custom_ignore = { 
@@ -337,7 +317,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-
 let g:Powerline_symbols='fancy'
 let g:Powerline_cache_enabled = 0
 let g:user_emmet_leader_key='<C-e>' 
@@ -345,3 +324,5 @@ let g:acp_behaviorSnipmateLength = 1
 let g:script_runner_key = '<F9>'
 let g:unite_source_grep_recursive_opt = ''
 let g:unite_source_grep_search_word_highlight=1
+
+endif
