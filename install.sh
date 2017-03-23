@@ -121,10 +121,10 @@ if $CTF; then
     sudo ./make.sh install
 
     # Install qira
-    sudo pip install six html flask-socketio pillow pyelftools socketIO-client gevent pydot ipaddr hexdump nose --upgrade
     cd ~/  
     wget -qO- https://github.com/BinaryAnalysisPlatform/qira/archive/v1.2.tar.gz | tar zx && mv qira* qira
     cd qira/
+    sudo pip install -r requirements.txt
     sudo ./install.sh
     sudo ./fetchlibs.sh
     sudo ./tracers/pin_build.sh
