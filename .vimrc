@@ -24,26 +24,35 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My Bundles here:"
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'airblade/vim-gitgutter'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle 'Townk/vim-autoclose'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-let NERDTreeMinimalUI=1
-let NERDTreeWinSize=25
-Bundle 'majutsushi/tagbar'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'honza/vim-snippets'
-Bundle 'garbas/vim-snipmate'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'Valloric/YouCompleteMe'
-Plugin 'sheerun/vim-wombat-scheme'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'L9'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'tpope/vim-fugitive'  "branch of powerline
+Plugin 'c9s/colorselector.vim'
+Plugin 'ap/vim-css-color'
+"Plugin 'emmetio/emmet'
+Plugin 'gregsexton/MatchTag'
+Plugin 'kien/ctrlp.vim'
+Plugin 'python_match.vim'
+Plugin 'tpope/vim-surround'
+
+"Plugin 'AutoComplPop'
+Plugin 'othree/vim-autocomplpop'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
+Plugin 'ironcamel/vim-script-runner'
+Plugin 'xuhdev/SingleCompile'
+
+"Plugin for tracecode 
+Plugin 'hewes/unite-gtags'
+Plugin 'Shougo/unite.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'Shougo/unite-outline'
+Plugin 'Shougo/vimproc.vim'
 
 "Press F1 to open NERDTree
 map <F1> :NERDTreeToggle<CR>
@@ -83,6 +92,9 @@ set softtabstop=4
 set shiftwidth=4
 set nu              " show line numbers
 set ru              " ruler
+set ai
+set si
+set wrap
 set laststatus=2 
 set ls=2            " always show status bar
 set incsearch       " incremental search
@@ -91,9 +103,6 @@ set autoread        " auto read when file is changed from outside "
 set history=1000    " keep 50 lines of command line history  "
 set scrolloff=3     " when scrolling, keep cursor 3 lines away from screen border
 syntax on           " syntax highlight on
-
-"Youcompleteme fix
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 " tab length exceptions on some file types
 autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
