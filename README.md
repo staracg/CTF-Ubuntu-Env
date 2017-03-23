@@ -19,6 +19,15 @@
     - https://github.com/JonathanSalwan/ROPgadget
  - qira
     - https://github.com/BinaryAnalysisPlatform/qira
+    
+### Installation
+```
+ cd ~/
+ git clone https://github.com/staracg/Ubuntu-Env.git
+ cd Ubuntu-Env/
+ ./install.sh
+```
+### ScreenShot
  - Screen
  ![Alt Text](http://i.imgur.com/veZ4o3e.png)
  
@@ -27,13 +36,3 @@
 
  - Vim screenshot
  ![Alt Text]()
-
-
-### Installation
-
-```
- cd ~/
- git clone https://github.com/staracg/Ubuntu-Env.git
- cd Ubuntu-Env/
- ./install.sh
-```
