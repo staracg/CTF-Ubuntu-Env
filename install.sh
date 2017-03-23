@@ -21,7 +21,7 @@ function ask()
 
 ask UPGRADE "Update and upgrade everything? (y/n):"
 ask POWERLINE "Install powerline? (y/n):"
-ask RC "Overwrite rc files? (y/n):"
+ask DOT "Overwrite dot files? (y/n):"
 ask CTF "Install CTF environment? (y/n):"
 
 if $UPGRADE; then
@@ -55,9 +55,9 @@ if $POWERLINE; then
     mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 fi
 
-if $RC; then
-    echo "RC"
-    # Copy rc file
+if $DOT; then
+    echo "DOT"
+    # Copy dot file
     sudo apt-get install -y vim
     sudo apt-get install build-essential cmake
     sudo apt-get install -y python-dev
