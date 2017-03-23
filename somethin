@@ -1,0 +1,50 @@
+vi /home/vagrant/.ssh/authorized_keys 
+exit
+exit
+history 
+git 
+sudo apt-get install git
+history 
+git clone https://github.com/Gallopsled/pwntools.git
+ls
+cd pwntools/
+ls
+pip
+sudo apt-get install python-pip
+pip install -r requirements.txt 
+sudo pip install -r requirements.txt 
+python
+cd ..
+ls
+git clone https://github.com/aquynh/capstone.git
+ls
+cd capstone/
+ls
+cd bindings/python/
+ls
+python setup.py install
+sudo python setup.py install
+cd ../../
+ls
+./make.sh 
+cd bindings/python/
+sudo python setup.py install
+cd ~
+python
+cd capstone/
+ls
+sudo ./make.sh install
+python
+ls
+python
+cd ~
+ls
+vi a.c
+make a
+python
+history 
+cat .bash_history 
+exit
+cat .bash_history 
+sudo apt-get install pastebinit
+history > log
