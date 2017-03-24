@@ -31,6 +31,38 @@ if $UPGRADE; then
     sudo apt-get -y upgrade
     sudo apt-get -y dist-upgrade
     sudo apt-get -y autoremove
+    
+    # Install vim from source
+    sudo apt-get install -y libncurses5-dev libgnome2-dev libgnomeui-dev \
+    libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
+    libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
+    python3-dev ruby-dev lua5.1 lua5.1-dev libperl-dev git
+    sudo apt-get remove -y vim vim-runtime
+    cd ~/
+    git clone https://github.com/vim/vim.git
+    cd ~/vim
+    ./configure --with-features=huge \
+            --enable-multibyte \
+            --enable-rubyinterp \
+            --enable-pythoninterp \
+            --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
+            --enable-python3interp \
+            --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
+            --enable-perlinterp \
+            --enable-luainterp \
+            --enable-gui=gtk2 --enable-cscope --prefix=/usr \
+    make VIMRUNTIMEDIR=/usr/share/vim/vim80
+    sudo make install
+    sudo apt-get install -y vim-runtime
+    sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
+    sudo update-alternatives --set editor /usr/bin/vim
+    sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
+    sudo update-alternatives --set vi /usr/bin/vim
+    
+    # Install vim plugin
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    vim +PluginInstall +qall
+
 fi
 
 if $POWERLINE; then
@@ -45,6 +77,7 @@ if $POWERLINE; then
 
     # Install git complete
     sudo apt-get install -y git bash-completion
+
     # Install Fonts
     wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
     wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
@@ -82,7 +115,12 @@ if $CTF; then
     # Install angr
     sudo apt-get install python-dev libffi-dev build-essential virtualenvwrapper
     sudo pip install angr --upgrade
-
+    
+    # Install binwalk
+    git clone https://github.com/devttys0/binwalk.git
+    cd binwalk/
+    sudo python setup.py install
+    
     # Install nmap, strace, ltrace
     sudo apt-get install -y nmap
     sudo apt-get install -y strace
