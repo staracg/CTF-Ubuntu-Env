@@ -135,17 +135,14 @@ if $CTF; then
     sudo make
     sudo make install
 
-    # Install GDB peda
+    # Install scwuaptx GDB peda and Pwngdb
     cd ~/
-    git clone https://github.com/scwuaptx/peda.git ~/peda
+    git clone https://github.com/scwuaptx/peda.git ~/.peda
+    git clone https://github.com/scwuaptx/Pwngdb.git ~/.pwngdb
     echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-    echo "source ~/peda/peda.py" >> ~/.gdbinit
-    cp ~/peda/.inputrc ~/
+    cp ~/.peda/.inputrc ~/
 
-    # Install python packages
-    # stable
-    # sudo pip install pwntools
-   
+    # Install pwntools
     sudo apt-get install -y git python-pip
     git clone https://github.com/Gallopsled/pwntools.git
     cd pwntools/
@@ -166,3 +163,8 @@ if $CTF; then
     sudo ./tracers/pin_build.sh
     sudo ./tracers/qemu_build.sh
 fi
+
+echo "***************************************"
+echo "  Thanks for installing "
+echo "  Check out README for more info"
+echo "    ~Ayumi"
