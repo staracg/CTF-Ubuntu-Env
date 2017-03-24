@@ -86,8 +86,7 @@ fi
 if $DOT; then
     echo "DOT"
     # Copy dot file
-    sudo apt-get install -y vim
-    sudo apt-get install build-essential cmake
+    sudo apt-get install -y build-essential cmake
     sudo apt-get install -y python-dev
     cp ./.vimrc ~
     cp ./.bashrc ~
@@ -108,7 +107,7 @@ if $CTF; then
     sudo apt-get install -y gcc-multilib
     
     # Install angr
-    sudo apt-get install python-dev libffi-dev build-essential virtualenvwrapper
+    sudo apt-get install -y python-dev libffi-dev build-essential virtualenvwrapper
     sudo pip install angr --upgrade
     
     # Install binwalk
@@ -132,6 +131,7 @@ if $CTF; then
     sudo make install
 
     # Install scwuaptx GDB peda and Pwngdb
+    sudo apt-get install -y gdb
     cd ~/
     git clone https://github.com/scwuaptx/peda.git ~/.peda
     git clone https://github.com/scwuaptx/Pwngdb.git ~/.pwngdb
