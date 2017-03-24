@@ -8,6 +8,11 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# Powerline set
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+
 # some more aliases
 alias gdb="gdb -q"
 alias tmux="tmux -2"
@@ -18,7 +23,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias vi='vim'
-alias python='ipython'
 alias objdump='objdump -M intel'
 
 # Colorize the prompt.
