@@ -58,10 +58,6 @@ if $UPGRADE; then
     sudo update-alternatives --set editor /usr/bin/vim
     sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
     sudo update-alternatives --set vi /usr/bin/vim
-    
-    # Install vim plugin
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    vim +PluginInstall +qall
 fi
 
 if $POWERLINE; then
@@ -116,9 +112,10 @@ if $CTF; then
     sudo pip install angr --upgrade
     
     # Install binwalk
-    git clone https://github.com/devttys0/binwalk.git
-    cd binwalk/
-    sudo python setup.py install
+    sudo apt-get install binwalk
+    git clone https://github.com/devttys0/binwalk.git ~/.binwalk
+    cd .binwalk/
+    sudo ./deps.sh --yes
     
     # Install nmap, strace, ltrace
     sudo apt-get install -y nmap
@@ -166,5 +163,6 @@ fi
 echo "***************************************"
 echo "  Thanks for installing "
 echo "  Check out README for more info"
+echo "  enjoy it in CTF"
 echo "    ~Ayumi"
 echo "***************************************"
