@@ -62,7 +62,6 @@ if $UPGRADE; then
     # Install vim plugin
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
-
 fi
 
 if $POWERLINE; then
@@ -168,3 +167,4 @@ echo "***************************************"
 echo "  Thanks for installing "
 echo "  Check out README for more info"
 echo "    ~Ayumi"
+echo "***************************************"
