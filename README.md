@@ -1,6 +1,7 @@
 # Ubuntu-Env
 ### Install for CTF on Ubuntu-64bits
  - Vim
+ - bash-completion
  - python-dev
  - binwalk
  - strace
