@@ -88,7 +88,6 @@ if $DOT; then
     # Copy dot file
     sudo apt-get install -y vim
     sudo apt-get install build-essential cmake
-    sudo apt-get install bash-completion
     sudo apt-get install -y python-dev
     cp ./.vimrc ~
     cp ./.bashrc ~
