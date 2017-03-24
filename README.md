@@ -35,4 +35,4 @@
  ![Alt Text](http://i.imgur.com/xCpWPQh.png)
 
  - Vim screenshot
- ![Alt Text]()
+ ![Alt Text](http://imgur.com/DGNJnAA.png)
