@@ -1,3 +1,12 @@
+" not compatible with the old-fashion vi mode
+set nocompatible
+
+" powerline
+set rtp+=usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
 " Setting up Vundle - the vim plugin bundler
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -32,6 +41,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vectorstorm/vim-csyn'
 Plugin 'SirVer/ultisnips'
+Plugin 'klen/python-mode'
 
 "Plugin 'AutoComplPop'
 Plugin 'othree/vim-autocomplpop'
@@ -61,9 +71,7 @@ language message en_US.UTF-8
 " Configuration file for vim
 set modelines=0     " CVE-2007-2438
 set backspace=2     " more powerful backspacing
-set nocompatible    " not compatible with the old-fashion vi mode
 set autoindent      " enable autoindent
-set nocompatible    " no vi-compatible
 
 " allow plugins by file type (required for plugins!)
 filetype plugin on
@@ -267,6 +275,7 @@ nmap  -  <Plug>(choosewin)
 
 " show big letters
 let g:choosewin_overlay_enable = 1
+
 " airline
 set ttimeoutlen=50
 set noshowmode
@@ -276,14 +285,8 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-let g:airline_theme = 'powerlineish'
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
+let g:airline_theme = 'wombat'
+let g:airline_powerline_fonts = 0
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#whitespace#enabled = 0 
