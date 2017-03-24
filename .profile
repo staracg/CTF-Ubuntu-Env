@@ -8,6 +8,11 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# enable bash-complete
+if [ -r /etc/bash_completion ]; then
+  . /etc/bash_completion
+fi
+
 # Powerline set
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
