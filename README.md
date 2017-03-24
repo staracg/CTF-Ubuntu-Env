@@ -2,6 +2,7 @@
 ### Install for CTF on Ubuntu-64bits
  - Vim
  - python-dev
+ - binwalk
  - strace
  - ltrace
  - nmap
@@ -11,8 +12,9 @@
     - http://powerline.readthedocs.org/en/master/index.html
  - z3
     - https://github.com/Z3Prover/z3
- - GDB peda
-    - https://github.com/longld/peda
+ - scwuaptx GDB peda and Pwngdb
+    - https://github.com/scwuaptx/peda
+    - https://github.com/scwuaptx/Pwngdb
  - pwntools
     - https://github.com/Gallopsled/pwntools
  - ROPgadget
