@@ -114,7 +114,7 @@ if $CTF; then
     # Install binwalk
     sudo apt-get install binwalk
     cd ~/
-    git clone https://github.com/devttys0/binwalk.git
+    git clone https://github.com/devttys0/binwalk.git ~/.binwalk/
     cd .binwalk/
     sudo ./deps.sh --yes
     
