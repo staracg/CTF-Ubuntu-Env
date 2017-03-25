@@ -113,7 +113,7 @@ if $CTF; then
     
     # Install binwalk
     sudo apt-get install binwalk
-    cp ~/
+    cd ~/
     git clone https://github.com/devttys0/binwalk.git
     cd .binwalk/
     sudo ./deps.sh --yes
