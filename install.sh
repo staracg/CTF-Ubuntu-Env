@@ -103,7 +103,7 @@ fi
 if $CTF; then
     echo "CTF"
     # Install multi architecture
-    dpkg --add-architecture i386
+    sudo dpkg --add-architecture i386
     sudo apt-get update
     sudo apt-get install -y gcc-multilib
     
