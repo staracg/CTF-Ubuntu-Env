@@ -87,7 +87,7 @@ if $DOT; then
     echo "DOT"
     # Copy dot file
     sudo apt-get install -y vim
-    sudo apt-get install build-essential cmake
+    sudo apt-get install -y build-essential cmake
     sudo apt-get install -y python-dev
     cp ./.vimrc ~
     cp ./.bashrc ~
@@ -108,12 +108,13 @@ if $CTF; then
     sudo apt-get install -y gcc-multilib
     
     # Install angr
-    sudo apt-get install python-dev libffi-dev build-essential virtualenvwrapper
+    sudo apt-get install -y python-dev libffi-dev build-essential virtualenvwrapper
     sudo pip install angr --upgrade
     
     # Install binwalk
     sudo apt-get install binwalk
-    git clone https://github.com/devttys0/binwalk.git ~/.binwalk
+    cp ~/
+    git clone https://github.com/devttys0/binwalk.git
     cd .binwalk/
     sudo ./deps.sh --yes
     
@@ -140,10 +141,11 @@ if $CTF; then
 
     # Install pwntools
     sudo apt-get install -y git python-pip
+    cd ~/
     git clone https://github.com/Gallopsled/pwntools.git
     cd pwntools/
     sudo pip install -r requirements.txt
-    cd ..
+    cd ~/
     git clone https://github.com/aquynh/capstone.git
     cd capstone/
     ./make.sh
