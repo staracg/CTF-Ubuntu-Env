@@ -23,6 +23,7 @@ ask UPGRADE "Update and upgrade everything? (y/n):"
 ask POWERLINE "Install powerline? (y/n):"
 ask DOT "Overwrite dot files? (y/n):"
 ask CTF "Install CTF environment? (y/n):"
+ask PIN "Install Qira's pin_build? (y/n):"
 
 if $UPGRADE; then
     echo "UPGRADE"
@@ -154,8 +155,12 @@ if $CTF; then
     sudo pip install -r requirements.txt
     sudo ./install.sh
     sudo ./fetchlibs.sh
-    sudo ./tracers/pin_build.sh
-    sudo ./tracers/qemu_build.sh
+    sudo ./qemu_build.sh
+fi
+
+if $PIN; then
+    cd ~/qira/tracers/
+    sudo ./pin_build.sh
 fi
 
 echo "***************************************"
