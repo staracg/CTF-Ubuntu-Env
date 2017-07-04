@@ -87,7 +87,6 @@ fi
 if $DOT; then
     echo "DOT"
     # Copy dot file
-    sudo apt-get install -y vim
     sudo apt-get install -y build-essential cmake
     sudo apt-get install -y python-dev
     cp ./.vimrc ~
