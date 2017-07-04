@@ -112,7 +112,7 @@ if $CTF; then
     sudo pip install angr --upgrade
     
     # Install binwalk
-    sudo apt-get install binwalk
+    sudo apt-get install -y binwalk
     
     # Install nmap, strace, ltrace
     sudo apt-get install -y nmap
@@ -129,6 +129,7 @@ if $CTF; then
     sudo make install
 
     # Install scwuaptx GDB peda and Pwngdb
+    sudo apt-get install -y gdb
     cd ~/
     git clone https://github.com/scwuaptx/peda.git ~/.peda
     git clone https://github.com/scwuaptx/Pwngdb.git ~/.pwngdb
