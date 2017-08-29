@@ -42,7 +42,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vectorstorm/vim-csyn'
 Plugin 'SirVer/ultisnips'
 Plugin 'klen/python-mode'
-Plugin '0editorconfig/editorconfig-vim'
+Plugin 'editorconfig/editorconfig-vim'
 
 "Plugin 'AutoComplPop'
 Plugin 'othree/vim-autocomplpop'
