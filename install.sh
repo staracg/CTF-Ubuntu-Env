@@ -108,8 +108,13 @@ if $CTF; then
     sudo apt-get install -y gcc-multilib
     
     # Install angr
+    cd ~/
+    git clone https://github.com/angr/angr.git
+    cd angr
+    sudo pip install -r requirements.txt
     sudo apt-get install -y python-dev libffi-dev build-essential virtualenvwrapper
     sudo pip install angr --upgrade
+    sudo python setup.py install
     
     # Install binwalk
     sudo apt-get install -y binwalk
@@ -118,7 +123,15 @@ if $CTF; then
     sudo apt-get install -y nmap
     sudo apt-get install -y strace
     sudo apt-get install -y ltrace
-
+    
+    # Install klee
+    curl -sSL https://get.docker.com/ | sudo sh
+    sudo docker pull klee/klee
+    cd ~/
+    wget https://raw.githubusercontent.com/L4ys/LazyKLEE/master/LazyKLEE.py
+    chmod +x LazyKLEE.py
+    sudo mv LazyKLEE.py /usr/local/bin/LazyKLEE
+    
     # Install z3
     cd ~/
     git clone https://github.com/Z3Prover/z3
