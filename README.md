@@ -11,6 +11,11 @@
  - My Configuration
  - powerline
     - http://powerline.readthedocs.org/en/master/index.html
+ - angr
+    - https://github.com/angr/angr
+ - klee w/ LazyKLEE
+    - https://github.com/klee/klee
+    - https://github.com/L4ys/LazyKLEE
  - z3
     - https://github.com/Z3Prover/z3
  - scwuaptx GDB peda and Pwngdb
