@@ -139,12 +139,12 @@ if $CTF; then
 
     # Install qira
     cd ~/  
-    wget -qO- https://github.com/BinaryAnalysisPlatform/qira/archive/v1.2.tar.gz | tar zx && mv qira* qira
+    git clone https://github.com/BinaryAnalysisPlatform/qira.git
     cd qira/
     sudo pip install -r requirements.txt
     sudo ./install.sh
     sudo ./fetchlibs.sh
-    sudo ./qemu_build.sh
+    sudo ./tracers/qemu_build.sh
 fi
 
 if $PIN; then
