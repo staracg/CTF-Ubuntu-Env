@@ -181,8 +181,8 @@ if $PIN; then
 fi
 
 echo "***************************************"
-echo "  Thanks for installing "
-echo "  Check out README for more info"
-echo "  enjoy it in CTF"
-echo "    ~Ayumi"
+echo "  Thanks for installing "              "
+echo "  Check out README for more info"      "
+echo "  enjoy it in CTF"                     "
+echo "                                ~Ayumi "
 echo "***************************************"
