@@ -32,6 +32,7 @@ if $UPGRADE; then
     sudo apt-get -y upgrade
     sudo apt-get -y dist-upgrade
     sudo apt-get -y autoremove
+    sudo pip install pip --upgrade
     
     # Install vim 
     sudo apt-get install vim
