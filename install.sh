@@ -97,7 +97,6 @@ if $DOT; then
     cp .bashrc ~
     cp .profile ~
     cp .screenrc ~
-    cp .gdbinit ~
     cp .tmux.conf ~
     # Install vim plugin
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -146,6 +145,7 @@ if $CTF; then
     sudo make install
 
     # Install scwuaptx GDB peda and Pwngdb
+    cp .gdbinit ~
     sudo apt-get install -y gdb
     cd ~/
     git clone https://github.com/scwuaptx/peda.git ~/.peda
