@@ -58,6 +58,9 @@ if $UPGRADE; then
                 --enable-cscope \
                 --prefix=/usr/local
     make VIMRUNTIMEDIR=/usr/local/share/vim/vim80
+    sudo apt-get install checkinstall
+    cd ~/vim
+    sudo checkinstall
     sudo make install
     sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
     sudo update-alternatives --set editor /usr/bin/vim
@@ -93,6 +96,7 @@ if $DOT; then
     # Copy dot file
     sudo apt-get install -y build-essential cmake
     sudo apt-get install -y python-dev
+    cd CTF-Ubuntu-Env/
     cp .vimrc ~/
     cp .bashrc ~/
     cp .profile ~/
