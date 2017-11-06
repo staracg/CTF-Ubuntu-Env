@@ -93,11 +93,11 @@ if $DOT; then
     # Copy dot file
     sudo apt-get install -y build-essential cmake
     sudo apt-get install -y python-dev
-    cp .vimrc ~
-    cp .bashrc ~
-    cp .profile ~
-    cp .screenrc ~
-    cp .tmux.conf ~
+    cp .vimrc ~/
+    cp .bashrc ~/
+    cp .profile ~/
+    cp .screenrc ~/
+    cp .tmux.conf ~/
     # Install vim plugin
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
@@ -145,7 +145,7 @@ if $CTF; then
     sudo make install
 
     # Install scwuaptx GDB peda and Pwngdb
-    cp .gdbinit ~
+    cp .gdbinit ~/
     sudo apt-get install -y gdb
     cd ~/
     git clone https://github.com/scwuaptx/peda.git ~/.peda
