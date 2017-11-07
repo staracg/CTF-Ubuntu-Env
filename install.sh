@@ -45,7 +45,7 @@ if $UPGRADE; then
     cd ~
     git clone https://github.com/vim/vim.git
     cd vim
-    ./configure --with-features=huge \
+    sudo ./configure --with-features=huge \
                 --enable-multibyte \
                 --enable-rubyinterp=yes \
                 --enable-pythoninterp=yes \
@@ -64,7 +64,6 @@ if $UPGRADE; then
                 --enable-fail-if-missing
                 
     sudo make VIMRUNTIMEDIR=/usr/local/share/vim/vim80
-    cd ~/vim
     sudo make install
     sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
     sudo update-alternatives --set editor /usr/bin/vim
