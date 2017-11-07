@@ -54,7 +54,6 @@ if $UPGRADE; then
                 --with-python3-config-dir=/usr/local/lib/python3.5/config-3.5m-x86_64-linux-gnu \
                 --enable-perlinterp=yes \
                 --enable-luainterp=yes \
-                --with-luajit \
                 --enable-gui=gtk3 \
                 --with-features=huge \
                 --enable-fontset \
