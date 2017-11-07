@@ -61,7 +61,7 @@ if $UPGRADE; then
                 --enable-largefile \
                 --disable-netbeans \
                 --enable-cscope \
-                --prefix=/usr/local
+                --prefix=/usr/local \
                 --enable-fail-if-missing
                 
     sudo make VIMRUNTIMEDIR=/usr/local/share/vim/vim80
