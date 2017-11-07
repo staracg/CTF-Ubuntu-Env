@@ -56,12 +56,12 @@ if $UPGRADE; then
                 --enable-luainterp=yes \
                 --with-luajit \
                 --enable-gui=gtk3 \
-                --enable-cscope \
-                --prefix=/usr/local
                 --with-features=huge \
                 --enable-fontset \
                 --enable-largefile \
                 --disable-netbeans \
+                --enable-cscope \
+                --prefix=/usr/local
                 --enable-fail-if-missing
                 
     sudo make VIMRUNTIMEDIR=/usr/local/share/vim/vim80
