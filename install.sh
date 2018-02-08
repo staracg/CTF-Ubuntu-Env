@@ -97,8 +97,10 @@ if $DOT; then
     # Copy dot file
     sudo apt-get install -y build-essential cmake
     sudo apt-get install -y python-dev
+    cd ~
     cd CTF-Ubuntu-Env/
     cp .vimrc ~/
+    cp .editorconfig ~/
     cp .bashrc ~/
     cp .profile ~/
     cp .screenrc ~/
