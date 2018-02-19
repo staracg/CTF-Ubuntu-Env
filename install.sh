@@ -179,6 +179,9 @@ if $CTF; then
     sudo pip install -r requirements.txt
     sudo ./install.sh
     sudo ./fetchlibs.sh
+    sudo ./tracers/qemu_build.sh
+    sudo ./bdistrib.sh
+    sudo ./run_tests_static.sh
 fi
 
 if $PIN; then
