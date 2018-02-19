@@ -178,9 +178,9 @@ if $CTF; then
     cd qira/
     sudo pip install -r requirements.txt
     sudo ./install.sh
+    sudo ./bdistrib.sh
     sudo ./fetchlibs.sh
     sudo ./tracers/qemu_build.sh
-    sudo ./bdistrib.sh
     sudo ./run_tests_static.sh
 fi
 
