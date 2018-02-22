@@ -107,7 +107,7 @@ if $DOT; then
     cp .tmux.conf ~/
     # Install vim plugin
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    vim +PluginInstall +qall
+    sudo vim +PluginInstall +qall
 fi
 
 if $CTF; then
@@ -169,7 +169,7 @@ if $CTF; then
     cd ~/
     git clone https://github.com/aquynh/capstone.git
     cd capstone/
-    ./make.sh
+    sudo ./make.sh
     sudo ./make.sh install
 
     # Install qira
