@@ -144,7 +144,7 @@ if $CTF; then
     
     # Install z3
     cd ~/
-    git clone https://github.com/Z3Prover/z3
+    git clone https://github.com/Z3Prover/z3.git
     cd z3/
     sudo python scripts/mk_make.py --python
     cd build
