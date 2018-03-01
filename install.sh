@@ -166,6 +166,8 @@ if $CTF; then
     git clone https://github.com/Gallopsled/pwntools.git
     cd pwntools/
     sudo pip install -r requirements.txt
+    sudo python setup.py build
+    sudo python setup.py install
     cd ~/
     git clone https://github.com/aquynh/capstone.git
     cd capstone/
