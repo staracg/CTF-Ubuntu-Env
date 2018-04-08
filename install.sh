@@ -124,6 +124,7 @@ if $CTF; then
     sudo pip install -r requirements.txt
     sudo apt-get install -y python-dev libffi-dev build-essential virtualenvwrapper
     sudo pip install angr --upgrade
+    sudo python setup.py build
     sudo python setup.py install
     
     # Install binwalk
